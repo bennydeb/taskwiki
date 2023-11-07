@@ -275,7 +275,10 @@ class ViewPort(object):
 
     @property
     def raw_filter(self):
-        return u' '.join(self.taskfilter)
+        task_filter = self.taskfilter
+        task_filter.insert(2,'"')
+        task_filter.append('"')
+        return u' '.join(task_filter)
 
     @property
     def raw_defaults(self):
